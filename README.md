@@ -17,5 +17,5 @@ Start a new container with a volume for your config files
 
     docker run -d --name profittrailer -p 8081:8081 turcane/profit-trailer:latest
 
-[![Docker Stars](https://img.shields.io/docker/stars/rafffael/profit-trailer.svg)](https://hub.docker.com/r/rafffael/profit-trailer/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/rafffael/profit-trailer.svg)](https://hub.docker.com/r/rafffael/profit-trailer/)
+[![Docker Stars](https://img.shields.io/docker/stars/turcane/profit-trailer.svg)](https://hub.docker.com/r/turcane/profit-trailer/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/turcane/profit-trailer.svg)](https://hub.docker.com/r/turcane/profit-trailer/)
