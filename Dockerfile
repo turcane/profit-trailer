@@ -1,13 +1,13 @@
-FROM openjdk:8-alpine
+FROM adoptopenjdk/openjdk8:alpine
 
-ENV PT_VERSION=2.4.59
-ENV PT_DL=https://github.com/taniman/profit-trailer/releases/download/${PT_VERSION}/ProfitTrailer-${PT_VERSION}.zip
-
-VOLUME /app
 EXPOSE 8081
 
-ADD ${PT_DL} /opt
-COPY run-profit-trailer.sh /run-profit-trailer.sh
+VOLUME /opt/profittrailer
 
-WORKDIR /app
-CMD ["/bin/sh", "/run-profit-trailer.sh"]
+RUN apk add --update \
+    curl \
+    && rm -rf /var/cache/apk/*
+
+COPY start.sh /opt/profittrailer/start.sh
+
+CMD ["/bin/sh", "/opt/profittrailer/start.sh"]
