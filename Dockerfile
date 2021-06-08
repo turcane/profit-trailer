@@ -6,8 +6,9 @@ VOLUME /opt/profittrailer
 
 RUN apk add --update \
     curl \
-    && rm -rf /var/cache/apk/*
-
+    ca-certificates \
+    && rm -rf /var/cache/apk/* \
+    && update-ca-certificates
 
 COPY start.sh /start.sh
 CMD ["/bin/sh", "/start.sh"]
