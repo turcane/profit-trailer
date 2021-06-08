@@ -7,7 +7,13 @@ INSTALLED="$WORKDIR/.installed"
 if [ ! -f "$INSTALLED" ]; then
     wget $(curl -s https://api.github.com/repos/taniman/profit-trailer/releases/latest | grep "browser_download_url.*zip" | cut -d : -f 2,3 | tr -d \")
     unzip -j ProfitTrailer*.zip -d "$WORKDIR"
-    touch "$INSTALLED"
+    if [ -f "$WORKDIR/ProfitTrailer.jar" ]; then
+        touch "$INSTALLED"
+    else
+        echo "Could not download Profit Trailer. Stopping..."
+    fi
+
+    
 fi
 
 cd "$WORKDIR"
