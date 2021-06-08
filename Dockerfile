@@ -8,6 +8,6 @@ RUN apk add --update \
     curl \
     && rm -rf /var/cache/apk/*
 
-COPY start.sh /opt/profittrailer/start.sh
 
-CMD ["/bin/sh", "/opt/profittrailer/start.sh"]
+COPY start.sh /start.sh
+CMD ["/bin/sh", "/start.sh"]
