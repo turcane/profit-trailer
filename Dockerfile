@@ -1,14 +1,13 @@
-FROM adoptopenjdk/openjdk8:alpine
+FROM adoptopenjdk/openjdk8:debian
 
 EXPOSE 8081
 
 VOLUME /opt/profittrailer
 
-RUN apk add --update \
+RUN apt-get update && apt-get install -y \
     curl \
-    ca-certificates \
-    && rm -rf /var/cache/apk/* \
-    && update-ca-certificates
+    wget \
+    unzip
 
 COPY start.sh /start.sh
 CMD ["/bin/sh", "/start.sh"]
